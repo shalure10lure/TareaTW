@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
+using TareaTW.Data;
 using TareaTW.Models;
 
 namespace TareaTW.Repositories

@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Reflection.Emit;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Xml.Linq;
 using TareaTW.Models;
 
 namespace TareaTW.Data
 {
-    public class AppDbContext
+    public class AppDbContext:DbContext
     {
         public DbSet<User> Users => Set<User>();
         public DbSet<Book> Books => Set<Book>();
