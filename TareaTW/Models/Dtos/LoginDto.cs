@@ -1,4 +1,4 @@
-﻿namespace TareaTW.Models.DTOSd
+﻿namespace TareaTW.Models.Dtos
 {
     public class LoginDto
     {
