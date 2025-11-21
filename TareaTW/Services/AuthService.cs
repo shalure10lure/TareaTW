@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 using TareaTW.Models;
-using TareaTW.Models.DTOSd;
+using TareaTW.Models.Dtos;
 
 namespace TareaTW.Services
 {
