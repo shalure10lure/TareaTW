@@ -1,7 +1,7 @@
 services:
   api:
     build: .
-    container_name: security_api
+    container_name: tarea_api
     ports:
       - "8080:8080"
     environment:
@@ -17,20 +17,20 @@ services:
         condition: service_healthy
   db:
     image: postgres:16
-    container_name: security_pg
+    container_name: tarea_pg
     restart: unless-stopped
     environment:
-      POSTGRES_DB: securitydb
-      POSTGRES_USER: securityuser
+      POSTGRES_DB: tareadb
+      POSTGRES_USER: tareauser
       POSTGRES_PASSWORD: supersecret
     ports:
       - "5432:5432"
     volumes:
-      - security_data:/var/lib/postgresql/data
+      - tarea_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U securityuser -d securitydb"]
+      test: ["CMD-SHELL", "pg_isready -U tareauser -d tareadb"]
       interval: 5s
       timeout: 3s
       retries: 10
 volumes:
-  security_data:
+  tarea_data:

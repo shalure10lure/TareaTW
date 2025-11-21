@@ -17,6 +17,13 @@ namespace TareaTW.Controllers
             _service = service;
         }
 
+        [HttpGet("claims")]
+        [Authorize]  // cualquier token válido
+        public IActionResult ClaimsTest()
+        {
+            return Ok(User.Claims.Select(c => new { c.Type, c.Value }));
+        }
+
         // GET: /api/book
         [HttpGet]
         public async Task<IActionResult> GetAllBooks()

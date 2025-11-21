@@ -1,8 +1,11 @@
-﻿using System.Security.Claims;
+﻿using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using TareaTW.Models;
 using TareaTW.Models.Dtos;
+using TareaTW.Repositories;
 
 namespace TareaTW.Services
 {
@@ -118,8 +121,9 @@ namespace TareaTW.Services
             };
 
             var keyBytes = Encoding.UTF8.GetBytes(key);
-            var creds = new SigningCredentials(new SymmetricSecurityKey(keyBytes), SecurityAlgorithms.HmacSha256);
 
+            var creds = new SigningCredentials(new SymmetricSecurityKey(keyBytes), SecurityAlgorithms.HmacSha256);
+  
             var expires = DateTime.UtcNow.AddMinutes(expireMinutes);
 
             var token = new JwtSecurityToken(
